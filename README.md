@@ -1,6 +1,17 @@
 # thesustainabletour.com
 Repository of "The Sustainable Tour" website.
 
+## Table of contents
+1. [Project Informations](#project-informations)
+2. [How to install](#how-to-install)
+3. [How to start and build](#how-to-start-and-build)
+4. [Project file structure](#project-file-structure)
+5. [Continous integration](#continous-integration)
+6. [Project branches](#project-branches)
+7. [Commit messages](#commit-messages)
+8. [Issues creation](#issues-creation)
+9. [Useful Atom packages](#useful-atom-packages)
+
 ## Project informations:
 These are the services/libraries that this project uses:
 - **react**
@@ -123,7 +134,7 @@ You should fill these informations:
 
 You can monitor the features and the bug status in the **Projects** section in the repository.
 
-## Useful Atom packages for this project
+## Useful Atom packages
 - `quick-issues`
 - `atom-ide-ui`
 - `ide-css`
