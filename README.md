@@ -8,8 +8,9 @@ These are the services/libraries that this project uses:
 - **bootstrap** for responsiveness
 - **axios** for REST requests
 - **firebase** as noSQL database
+- **gsap** for animations
 
-We do NOT include these services/libraries:
+We do **NOT** include these services/libraries:
 - **reactstrap** because we create the components from scratch
 - **jquery/popper** because we don't want to use bootstrap components
 
@@ -29,6 +30,39 @@ To build the project:
 npm run build
 ```
 
+## Project file structure
+The project's file structure respects these schema:
+- `api` - here you should add files regarding API calls
+  - `APIUtils.js (example)`
+  - `InstagramAPI.js (example)`
+  - `...`
+- `assets` - here there are all the assets...
+  - `fonts` - ... divided by type
+  - `icons` - we use font-icons made with **icomoon**
+  - `images`
+  - `...`
+- `components`
+  - `ComponentName` - folder with the name of the component (in CamelCase)
+    - `ComponentName.jsx`
+    - `ComponentName.scss`
+    - `...`
+  - `...`
+- `pages` - folder containing all the pages
+  - `Home`
+    - `Home.jsx`
+    - `Home.scss`
+    - `...`
+  - `...`
+- `style` - folder cotaining the style of the app (theme, typography, etc.)
+- `utils` - folder containing various scripts (written by you or not)
+  - `Utils.js (example)`
+  - `...`
+- `App.js` - renders the homepage (and in the future maybe other pages)
+- `index.js` - entrance of the react app
+If the folder is not present, please create it.
+Most of the components should be stateless. The logic should be in the `App.js` or in the `pages/Home/Home.jsx` file.
+
+
 ## Continous integration
 This repository is linked with Netlify. Every commit in the `master` branch is intercepted by Netlify and a build will be created and hosted automatically on the website.
 
@@ -39,12 +73,13 @@ master        X_____________________________________H___...
 dev                 \__________________T___F__/ \_______...
 feature-name            \__D__T__P__/
 ```
-- `X` project start
-- `D` development commits
+- `X` start
+- `D` development
 - `T` testing
 - `P` pull request
 - `F` integration fixes
 - `H` hotfix
+
 If possible, do not commit on master.
 When you want to develop a new feature/component, create a new branch from `dev` branch and calling following the **kebab-case** notation.
 For example: `map` or `instagram-card`.
@@ -58,7 +93,7 @@ You can test and fix integration and general bugs on `dev` branch after the merg
 The merging to the `master` branch must be done if everything works fine.
 You can include hot-fixes in the `master` branch if necessary. Just try to do one single commit fixing multiple issues on `master` branch.
 
-## Commits description
+## Commit messages
 When writing the commit description, please consider these rules:
 ```
 First line is for a short description
@@ -77,7 +112,7 @@ You can close features/bugs by adding one of these words before the issue number
 - resolved
 You should add bugs and new features in the issue section of github before closing them. If it's a stupid bug, please do not add it to the issue list.
 
-## How to create an issue
+## Issues creation
 In order to create an issue, go to the **Issue** tab on github site, and click **New Issue** button.
 You should fill these informations:
 - **title** (mandatory)
