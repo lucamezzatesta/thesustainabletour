@@ -122,3 +122,14 @@ You should fill these informations:
 - **Project**: `feature list` or `bug list`
 
 You can monitor the features and the bug status in the **Projects** section in the repository.
+
+## Useful Atom packages for this project
+- `quick-issues`
+- `atom-ide-ui`
+- `ide-css`
+- `ide-html`
+- `ide-json`
+- `ide-typescript`
+- `react`
+- `todo`
+- `react-snippets`
