@@ -125,9 +125,12 @@ You should add bugs and new features in the issue section of github before closi
 
 ## Issues creation
 In order to create an issue, go to the **Issue** tab on github site, and click **New Issue** button.
+You can choose two different issues:
+- **Feature request** for new features
+- **Bug report** for bugs
 You should fill these informations:
 - **title** (mandatory)
-- **comment** (optional, but strongly suggested in case of bugs)
+- **comment** (optional, but strongly suggested to write it in case of bugs, following the template)
 - **Assignees** (optional) write your name if you want to fix it
 - **Labels**: `feature` or `bug`
 - **Project**: `feature list` or `bug list`
