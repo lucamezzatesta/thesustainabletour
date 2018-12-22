@@ -1,34 +1,43 @@
 import React from 'react';
+import classNames from 'classnames';
 import './Button.scss';
 
 const Button = ({
   type = 'button',
+  className,
   children,
   iconLeft,
   iconRight,
   onClick,
-  background,
-  color,
+  background = 'green',
+  color = 'white',
   href = '',
 }) => {
+
+  let buttonClass = classNames({
+    button: true,
+    [`bg-${background}`]: true,
+    [`color-${color}`]: true,
+    [className]: (className? true : false),
+  })
 
   switch(type) {
     case 'button':
       return (
-        <button onClick={onClick}>
-          {iconLeft && <i className={`icon icon-${iconLeft}`}></i>}
+        <button className={buttonClass} onClick={onClick}>
+          {iconLeft && <i className={`icon-left icon-${iconLeft}`}></i>}
           {children}
-          {iconRight && <i className={`icon icon-${iconRight}`}></i>}
+          {iconRight && <i className={`icon-right icon-${iconRight}`}></i>}
         </button>
       );
     case 'submit':
-      return <input type="submit" value={children}/>
+      return <input className={buttonClass} type="submit" value={children}/>
     case 'link':
       return (
-        <a href={href}>
-          {iconLeft && <i className={`icon icon-${iconLeft}`}></i>}
+        <a className={buttonClass} href={href}>
+          {iconLeft && <i className={`icon-left icon-${iconLeft}`}></i>}
           {children}
-          {iconRight && <i className={`icon icon-${iconRight}`}></i>}
+          {iconRight && <i className={`icon-right icon-${iconRight}`}></i>}
         </a>
       );
     default:

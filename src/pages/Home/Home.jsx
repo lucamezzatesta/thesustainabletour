@@ -8,7 +8,8 @@ class Home extends Component {
     return (
       <div>
         <h1 className="title">The Sustainable Tour</h1>
-        <Button iconLeft="facebook">hello</Button>
+        <Button iconLeft="facebook">ABOUT</Button>
+        <Button type="link" iconLeft="facebook" href="#" background="clear" color="black"/>
       </div>
     );
   }
