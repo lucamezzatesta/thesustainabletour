@@ -26,17 +26,19 @@ const Button = ({
       return (
         <button className={buttonClass} onClick={onClick}>
           {iconLeft && <i className={`icon-left icon-${iconLeft}`}></i>}
-          {children}
+          {children && <span className="button__content">{children}</span>}
           {iconRight && <i className={`icon-right icon-${iconRight}`}></i>}
         </button>
       );
     case 'submit':
-      return <input className={buttonClass} type="submit" value={children}/>
+      return (
+        <input className={buttonClass} type="submit" value={children}/>
+      );
     case 'link':
       return (
         <a className={buttonClass} href={href}>
           {iconLeft && <i className={`icon-left icon-${iconLeft}`}></i>}
-          {children}
+          {children && <span className="button__content">{children}</span>}
           {iconRight && <i className={`icon-right icon-${iconRight}`}></i>}
         </a>
       );

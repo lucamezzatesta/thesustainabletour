@@ -5,13 +5,19 @@
   text-transform: uppercase;
   padding: 5px 15px;
 
+  -webkit-box-shadow: 0px 2px 86px -21px rgba(0,0,0,0.68);
+  -moz-box-shadow: 0px 2px 86px -21px rgba(0,0,0,0.68);
+  box-shadow: 0px 2px 86px -21px rgba(0,0,0,0.68);
+
+  &__content {
+    margin: 0 5px;
+  }
+
   .icon-left {
-    padding-right: 5px;
     vertical-align: text-top;
   }
 
   .icon-right {
-    padding-left: 5px;
     vertical-align: text-top;
   }
 }
