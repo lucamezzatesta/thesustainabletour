@@ -13,17 +13,32 @@ Repository of "The Sustainable Tour" website.
 9. [Useful Atom packages](#useful-atom-packages)
 
 ## Project informations:
+
+### Libraries and services
 These are the services/libraries that this project uses:
 - **react**
-- **scss** for styling the components
+- **classname** library for concatenating classes in react
+- **react-device-detect** library for rendering different components on different device sizes
+- **scss** for styling
 - **bootstrap** for responsiveness
 - **axios** for REST requests
 - **firebase** as noSQL database
 - **gsap** for animations
+- **icomoon** for creating the icon font
 
 We do **NOT** include these services/libraries:
 - **reactstrap** because we create the components from scratch
 - **jquery/popper** because we don't want to use bootstrap components
+
+### Styling
+In order to specify `font-size` to text element, please consider that `html` has this rule applied:
+```css
+html {
+  font-size: 62.5%;
+}
+```
+for this reason `1rem` is equal to `10px`.
+
 
 ## How to install
 Simply run this command in the project folder:
@@ -65,6 +80,7 @@ The project's file structure respects these schema:
     - `...`
   - `...`
 - `style` - folder cotaining the style of the app (theme, typography, etc.)
+  - `style.scss` - this file includes all the other files in the folder because only this file is included in `index.js`
 - `utils` - folder containing various scripts (written by you or not)
   - `Utils.js (example)`
   - `...`

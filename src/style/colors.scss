@@ -1,0 +1,22 @@
+// Colors
+$black: #2B2B29;
+$white: #F5F3EB;
+$grey: #E5E4E5;
+$green: #435245;
+$red: #BB0B11;
+
+.color {
+  &-black {color: $black}
+  &-white {color: $white}
+  &-grey {color: $grey}
+  &-green {color: $green}
+  &-red {color: $red}
+}
+
+.bg {
+  &-black {background-color: $black}
+  &-white {background-color: $white}
+  &-grey {background-color: $grey}
+  &-green {background-color: $green}
+  &-red {background-color: $red}
+}
