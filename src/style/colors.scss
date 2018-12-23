@@ -5,6 +5,10 @@ $grey: #E5E4E5;
 $green: #435245;
 $red: #BB0B11;
 
+body {
+  background-color: $white;
+}
+
 .color {
   &-black {color: $black}
   &-white {color: $white}

@@ -19,6 +19,7 @@ These are the services/libraries that this project uses:
 - **react**
 - **classname** library for concatenating classes in react
 - **react-device-detect** library for rendering different components on different device sizes
+- **google-map-react** for loading Google Maps
 - **scss** for styling
 - **bootstrap** for responsiveness
 - **axios** for REST requests

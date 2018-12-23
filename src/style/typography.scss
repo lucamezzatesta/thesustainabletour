@@ -14,6 +14,12 @@
     font-style: normal;
 }
 
+html {
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  font-style: normal;
+  font-variant: normal;
+}
+
 .title {
     font-family: 'Dry Brush';
     font-weight: normal;
@@ -24,14 +30,10 @@
 h1.title {
   font-size: 10rem;
   @extend .color-green;
+  line-height: 9rem;
+  padding-top: 3rem;
 }
 
 h2.title {
   font-size: 7rem;
-}
-
-html {
-  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
-  font-style: normal;
-  font-variant: normal;
 }
