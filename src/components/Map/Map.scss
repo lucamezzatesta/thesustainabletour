@@ -4,16 +4,16 @@
   position: relative;
 
   &:before {
-    // content: "";
+    content: "";
     position: absolute;
     top: 0;
     bottom: 0;
     right: 0;
     left: 0;
     z-index: 1;
-    -webkit-box-shadow: inset 0px 0px 43px 75px rgba(245,243,235,1);
-    -moz-box-shadow: inset 0px 0px 43px 75px rgba(245,243,235,1);
-    box-shadow: inset 0px 0px 43px 75px rgba(245,243,235,1);
+    -webkit-box-shadow: inset 0px 0px 43px 7vw rgba(245,243,235,1);
+    -moz-box-shadow: inset 0px 0px 43px 7vw rgba(245,243,235,1);
+    box-shadow: inset 0px 0px 43px 7vw rgba(245,243,235,1);
     pointer-events: none;
   }
 }

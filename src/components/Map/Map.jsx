@@ -4,24 +4,23 @@ import GoogleMapReact from 'google-map-react';
 import './Map.scss';
 
 const googleMapsKey = {
-  key: "AIzaSyA8X_DI2EJ0P6MZc2ubkznP8qvObNF4Bfk",
-  zoomControl: false,
+  key: "AIzaSyBtJaNFGXwG0tKHVX1BuschF82rK0K--Ek",
 };
 
 class Map extends Component {
 
   static defaultProps = {
     center: {
-      lat: 59.95,
-      lng: 30.33
+      lat: 45.8415582,
+      lng: -108.0177694
     },
-    zoom: 11
+    zoom: 1,
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
+  handleApiLoaded = (map, maps) => {
+    map.setOptions({
+      disableDefaultUI: true,
+    })
   }
 
   render() {
@@ -31,7 +30,8 @@ class Map extends Component {
           bootstrapURLKeys={googleMapsKey}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
-
+          yesIWantToUseGoogleMapApiInternals
+          onGoogleApiLoaded={({ map, maps }) => this.handleApiLoaded(map, maps)}
           >
         </GoogleMapReact>
       </div>
