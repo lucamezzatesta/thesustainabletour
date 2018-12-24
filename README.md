@@ -25,6 +25,7 @@ These are the services/libraries that this project uses:
 - **axios** for REST requests
 - **firebase** as noSQL database
 - **gsap** for animations
+- **scrollmagic** for scrolling the magic
 - **icomoon** for creating the icon font
 
 We do **NOT** include these services/libraries:

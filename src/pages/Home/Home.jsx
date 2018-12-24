@@ -1,14 +1,44 @@
 import React, { Component } from 'react';
 import './Home.scss';
 
+import {TweenMax, ScrollToPlugin, Power2} from 'gsap/all';
+import ScrollMagic from 'scrollmagic';
+
 import Header from '../../components/Header/Header';
 import Map from '../../components/Map/Map';
 import Navigation from '../../components/Navigation/Navigation';
 
+// eslint-disable-next-line
+const plugins = [ScrollMagic, TweenMax, ScrollToPlugin];
+
 class Home extends Component {
 
-  onContactUsClick = (e) => {
+  constructor(props) {
+    super(props);
+
+    this.scrollController = new ScrollMagic.Controller();
+    this.scrollController.scrollTo(target => {
+      console.log("chiamato");
+      TweenMax.to(window, 0.5, {
+        scrollTo: {
+          y: target,
+          autokill: true
+        },
+        ease : Power2.easeInOut
+      })
+    });
+  }
+
+  onContactUsClick = e => {
     console.log("contact us");
+  }
+
+  smoothScrollTo = e => {
+    let id = e.currentTarget.getAttribute("href");
+    if (id) {
+      e.preventDefault();
+      this.scrollController.scrollTo(id);
+    }
   }
 
   render() {
@@ -21,12 +51,14 @@ class Home extends Component {
               {
                 type: "link",
                 text: "about",
-                link: "#nav-about"
+                link: "#nav-about",
+                onClick: this.smoothScrollTo,
               },
               {
                 type: "link",
                 text: "our journey",
-                link: "#nav-journey"
+                link: "#nav-journey",
+                onClick: this.smoothScrollTo,
               },
               {
                 text: "contact us",

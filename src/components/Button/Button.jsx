@@ -32,11 +32,11 @@ const Button = ({
       );
     case 'submit':
       return (
-        <input className={buttonClass} type="submit" value={children}/>
+        <input className={buttonClass} type="submit" value={children} onClick={onClick}/>
       );
     case 'link':
       return (
-        <a className={buttonClass} href={href}>
+        <a className={buttonClass} href={href} onClick={onClick}>
           {iconLeft && <i className={`icon-left icon-${iconLeft}`}></i>}
           {children && <span className="button__content">{children}</span>}
           {iconRight && <i className={`icon-right icon-${iconRight}`}></i>}

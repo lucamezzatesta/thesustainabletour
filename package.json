@@ -13,7 +13,8 @@
     "react": "^16.7.0",
     "react-device-detect": "1.6.1",
     "react-dom": "^16.7.0",
-    "react-scripts": "2.1.1"
+    "react-scripts": "2.1.1",
+    "scrollmagic": "2.0.6"
   },
   "scripts": {
     "start": "react-scripts start",

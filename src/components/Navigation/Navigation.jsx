@@ -15,7 +15,7 @@ const getLinks = (links) => {
   let buttons = [];
 
   for (let button of links) {
-    buttons.push(<Button type={button.type} href={button.link} onClick={button.onClick}>{button.text}</Button>);
+    buttons.push(<Button key={links.indexOf(button)} type={button.type} href={button.link} onClick={button.onClick}>{button.text}</Button>);
   }
 
   return buttons;

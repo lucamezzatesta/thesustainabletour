@@ -1,8 +1,6 @@
 import React from 'react';
 import './Header.scss';
 
-import Button from '../Button/Button';
-
 const Header = ({
   title,
   subtitle,
