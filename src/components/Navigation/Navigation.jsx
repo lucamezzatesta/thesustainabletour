@@ -6,7 +6,7 @@ import Button from '../Button/Button';
 const Navigation = ({
   links = [],
 }) => (
-  <nav className="navigation">
+  <nav className="navigation color-white">
     {getLinks(links)}
   </nav>
 );
