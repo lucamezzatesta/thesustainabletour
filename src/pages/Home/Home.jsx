@@ -9,6 +9,7 @@ import Map from '../../components/Map/Map';
 import Navigation from '../../components/Navigation/Navigation';
 import Card from '../../components/Card/Card';
 import Picture from '../../components/Picture/Picture';
+import Button from '../../components/Button/Button';
 
 // DEBUG: Test
 import luca from '../../assets/images/luca.jpg';
@@ -73,24 +74,52 @@ class Home extends Component {
           }/>
         <main className="container">
           <section className="row">
-            <div className="col-lg-8">
+            <div className="col-lg-7 col-xl-8">
               <h3 className="title" id="nav-about">Life is a journey,<br/>make it sustainable!</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Donec elementum ligula eu sapien consequat eleifend. Donec nec dolor erat, condimentum sagittis sem. Praesent porttitor porttitor risus, dapibus rutrum ipsum gravida et. Integer lectus nisi, facilisis sit amet eleifend nec, pharetra ut augue. Integer quam nunc, consequat nec egestas ac, volutpat ac nisi. Sed consectetur dignissim dignissim. Donec pretium est sit amet ipsum fringilla feugiat. Aliquam erat volutpat. Maecenas scelerisque, orci sit amet cursus tincidunt, libero nisl eleifend tortor, vitae cursus risus mauris vitae nisi. Cras laoreet ultrices ligula eget tempus. Aenean metus purus, iaculis ut imperdiet eget, sodales et massa. Duis pellentesque nisl vel massa</p>
             </div>
-            <div className="col-lg home__legenda">
-              <Card className="home__legenda-card">
-                <div>
-                  <Picture images={{tablet:luca, default: luca}} radius="20px"/>
+            <div className="col home__legenda">
+              <Card>
+                <div className="home__legenda-card">
+                  <Picture className="home__legenda-picture" images={luca} radius="200px"/>
+                  <div className="home__legenda-content">
+                    <span className="name">luca mezzatesta</span>
+                    <span className="job">videomaker</span>
+                    <ul className="socials">
+                      <Button iconLeft="facebook" background="clear" color="black"/>
+                      <Button iconLeft="instagram" background="clear" color="black"/>
+                      <Button iconLeft="website" background="clear" color="black"/>
+                    </ul>
+                  </div>
                 </div>
-                <p>second element</p>
               </Card>
-              <Card className="home__legenda-card">
-                <span>hello</span>
-                <p>second element</p>
+              <Card>
+                <div className="home__legenda-card">
+                  <Picture className="home__legenda-picture" images={luca} radius="200px"/>
+                  <div className="home__legenda-content">
+                    <span className="name">luca mezzatesta</span>
+                    <span className="job">videomaker</span>
+                    <ul className="socials">
+                      <Button iconLeft="facebook" background="clear" color="black"/>
+                      <Button iconLeft="instagram" background="clear" color="black"/>
+                      <Button iconLeft="website" background="clear" color="black"/>
+                    </ul>
+                  </div>
+                </div>
               </Card>
-              <Card className="home__legenda-card">
-                <span>hello</span>
-                <p>second element</p>
+              <Card>
+                <div className="home__legenda-card">
+                  <Picture className="home__legenda-picture" images={luca} radius="200px"/>
+                  <div className="home__legenda-content">
+                    <span className="name">luca mezzatesta</span>
+                    <span className="job">videomaker</span>
+                    <ul className="socials">
+                      <Button iconLeft="facebook" background="clear" color="black"/>
+                      <Button iconLeft="instagram" background="clear" color="black"/>
+                      <Button iconLeft="website" background="clear" color="black"/>
+                    </ul>
+                  </div>
+                </div>
               </Card>
             </div>
           </section>
