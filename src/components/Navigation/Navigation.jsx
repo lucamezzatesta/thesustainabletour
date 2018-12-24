@@ -4,21 +4,20 @@ import './Navigation.scss';
 import Button from '../Button/Button';
 
 const Navigation = ({
-  links = [],
+  buttons = [],
 }) => (
   <nav className="navigation color-white">
-    {getLinks(links)}
+    {buttons.map((button, index) =>
+      <Button
+        key={index}
+        type={button.type}
+        href={button.link}
+        onClick={button.onClick}
+        >
+          {button.text}
+      </Button>
+    )}
   </nav>
 );
-
-const getLinks = (links) => {
-  let buttons = [];
-
-  for (let button of links) {
-    buttons.push(<Button key={links.indexOf(button)} type={button.type} href={button.link} onClick={button.onClick}>{button.text}</Button>);
-  }
-
-  return buttons;
-}
 
 export default Navigation;

@@ -1,0 +1,22 @@
+[style*="--ar"] > :first-child {
+  width: 100%;
+}
+[style*="--ar"] > img {
+  height: auto;
+}
+@supports (--custom:property) {
+  [style*="--ar"] {
+    position: relative;
+  }
+  [style*="--ar"]::before {
+    content: "";
+    display: block;
+    padding-bottom: calc(100% / (var(--ar)));
+  }
+  [style*="--ar"] > :first-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+  }
+}
