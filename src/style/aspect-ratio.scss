@@ -13,7 +13,7 @@
     display: block;
     padding-bottom: calc(100% / (var(--ar)));
   }
-  [style*="--ar"] > :first-child {
+  [style*="--ar"] > :last-child {
     position: absolute;
     top: 0;
     left: 0;
