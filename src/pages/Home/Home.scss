@@ -53,4 +53,43 @@
 
     }
   }
+
+  &__feed {
+    margin-top: 5rem;
+    text-align: center;
+  }
+
+  &__polaroid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+
+    @media (min-width: 992px) {
+      .home__polaroid-wrapper {
+        width: 30%;
+      }
+    }
+
+    &-wrapper {
+      width: 100%;
+    }
+
+    &-bottom {
+
+      display: flex;
+      flex-direction: column;
+      font-size: 2rem;
+      margin: 0 1rem;
+
+      .date {
+        margin-top: 1.5rem;
+      }
+
+      .geolocation {
+        margin-top: 0.5rem;
+      }
+
+    }
+  }
 }
