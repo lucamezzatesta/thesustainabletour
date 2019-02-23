@@ -11,6 +11,7 @@ import Card from '../../components/Card/Card';
 import Picture from '../../components/Picture/Picture';
 import Button from '../../components/Button/Button';
 import Badge from '../../components/Badge/Badge';
+import Modal from '../../components/Modal/Modal';
 
 // DEBUG: Test
 import luca from '../../assets/images/luca.jpg';
@@ -23,6 +24,10 @@ class Home extends Component {
 
   constructor(props) {
     super(props);
+
+    this.state = {
+      isModalOpen: false,
+    }
 
     this.scrollController = new ScrollMagic.Controller();
     this.scrollController.scrollTo(target => {
@@ -38,6 +43,7 @@ class Home extends Component {
 
   onContactUsClick = e => {
     console.log("contact us");
+    this.setState({isModalOpen: true});
   }
 
   smoothScrollTo = e => {
@@ -186,6 +192,10 @@ class Home extends Component {
             </div>
           </section>
         </main>
+      <Modal 
+        show={this.state.isModalOpen}
+        onClose={() => this.setState({isModalOpen:false}) }
+      />
       </div>
     );
   }

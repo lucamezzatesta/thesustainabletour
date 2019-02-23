@@ -1,0 +1,18 @@
+.flipdown {
+
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+
+    .rotor-group {
+        padding-right: 0 !important;
+
+        &:not(:first-child) {
+            display: none;
+        }
+
+        &-heading {
+            display: none;
+        }
+    }
+}
