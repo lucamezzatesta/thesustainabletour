@@ -4,6 +4,7 @@ import './Waiting.scss';
 import Modal from '../../components/Modal/Modal';
 import Flipdown from '../../components/Flipdown/Flipdown.jsx';
 import Button from '../../components/Button/Button';
+import Picture from '../../components/Picture/Picture';
 
 import Slider from "react-slick";
 
@@ -23,7 +24,7 @@ export default class Waiting extends Component {
     let {labels, slideshow} = this.props;
 
     let slides = [];
-    slideshow.forEach( (e, i) => slides.push(<img src={e} key={i}></img>) )
+    slideshow.forEach( (e, i) => slides.push(<Picture className='waiting__picture' disableAR={true} images={e} key={i}></Picture>) )
 
     return (
       <div>
