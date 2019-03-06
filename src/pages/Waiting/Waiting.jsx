@@ -38,7 +38,7 @@ export default class Waiting extends Component {
         <Modal show={true} showClose={false}>
           <div className="waiting__wrapper">
             <h1 className="title">{labels.title || 'The Sustainable Tour'}</h1>
-            <h2 className="subtitle">{labels.subtitle || "-- NORTH AMERICAN EDITION --"}</h2>
+            {labels.subtitle && <h2 className="subtitle">{labels.subtitle}</h2> }
             <Flipdown date={labels.departureDate || 1561334400}/>
             <span className="title waiting__days color-black;">{labels.daysBeforeTheAdventure || "days before the adventure"}</span>
 
