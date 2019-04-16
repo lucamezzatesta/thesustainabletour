@@ -6,6 +6,7 @@
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
+    padding-top: 1rem;
 
     &-card {
       position: relative;
@@ -51,6 +52,12 @@
         }
       }
 
+    }
+  }
+
+  &__description {
+    &-t {
+      padding-bottom: 2rem;
     }
   }
 

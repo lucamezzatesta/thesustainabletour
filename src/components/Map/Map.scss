@@ -16,4 +16,59 @@
     box-shadow: inset 0px 0px 43px 35px rgba(245,243,235,1);
     pointer-events: none;
   }
+
+  &__pin {
+    width: 16px;
+    height: 16px;
+    background-color: red;
+    border-radius: 100%;
+    transform: translate(-50%, -50%);
+
+    &--last {
+      width: 16px;
+      height: 16px;
+      background-color: red;
+      border-radius: 100%;
+      transform: translate(-50%, -50%);
+
+      &:after {
+        content: '';
+        position: absolute;
+        top:-2px;
+        bottom: 0;
+        left:-2px;
+        right: 0;
+        width: 20px;
+        height: 20px;
+        
+        border-radius: 100%;
+
+        transform: translate(-50%, -50%);
+        background-color: red;
+
+        -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+        animation: sk-scaleout 1.0s infinite ease-in-out;    
+      }
+
+    }
+  }
+}
+
+@-webkit-keyframes sk-scaleout {
+  0% { -webkit-transform: scale(0) }
+  100% {
+    -webkit-transform: scale(2.0);
+    opacity: 0;
+  }
+}
+
+@keyframes sk-scaleout {
+  0% { 
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 100% {
+    -webkit-transform: scale(2.0);
+    transform: scale(2.0);
+    opacity: 0;
+  }
 }
