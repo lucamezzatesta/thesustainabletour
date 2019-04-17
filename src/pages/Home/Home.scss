@@ -56,7 +56,10 @@
   }
 
   &__description {
-    &-t {
+
+    padding-top: 3rem;
+
+    &-title {
       padding-bottom: 2rem;
     }
   }
