@@ -34,9 +34,6 @@ class App extends Component {
   }
 
   render() {
-
-    console.log("slideshow", this.state.slideshow)
-
     return <Waiting labels={this.state.labels} slideshow={this.state.slideshow}/>;
   }
 }
