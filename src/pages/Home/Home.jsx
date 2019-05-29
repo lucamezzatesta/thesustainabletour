@@ -12,9 +12,12 @@ import Picture from '../../components/Picture/Picture';
 import Button from '../../components/Button/Button';
 import Badge from '../../components/Badge/Badge';
 import Modal from '../../components/Modal/Modal';
+import Footer from '../../components/Footer/Footer';
 
-// DEBUG: Test
+// Images
 import luca from '../../assets/images/luca.jpg';
+import gio from '../../assets/images/gio.jpg';
+import mattia from '../../assets/images/mattia.jpg';
 
 // eslint-disable-next-line
 const plugins = [ScrollMagic, TweenMax, ScrollToPlugin];
@@ -69,13 +72,14 @@ class Home extends Component {
               },
               {
                 type: "link",
-                text: "our journey",
-                link: "#nav-journey",
+                text: "our supporters",
+                link: "#nav-sponsor",
                 onClick: this.smoothScrollTo,
               },
               {
+                type: "link",
                 text: "contact us",
-                onClick: this.onContactUsClick,
+                link: "mailto:info@thesustainabletour.com",
               }
             ]
           }/>
@@ -88,14 +92,25 @@ class Home extends Component {
             <div className="col home__legenda">
               <Card>
                 <div className="home__legenda-card">
-                  <Picture className="home__legenda-picture" images={luca} radius="200px"/>
+                  <Picture className="home__legenda-picture" images={gio} radius="200px"/>
                   <div className="home__legenda-content">
-                    <span className="name">luca mezzatesta</span>
-                    <span className="job">videomaker</span>
+                    <span className="name">giovanni franco</span>
+                    <span className="job">blogger</span>
                     <ul className="socials">
-                      <Button iconLeft="facebook" background="clear" color="black"/>
-                      <Button iconLeft="instagram" background="clear" color="black"/>
-                      <Button iconLeft="website" background="clear" color="black"/>
+                      <Button iconLeft="instagram" background="clear" color="black" type="link" link='#'/>
+                      <Button iconLeft="website" background="clear" color="black" type="link" link='#'/>
+                    </ul>
+                  </div>
+                </div>
+              </Card>
+              <Card>
+                <div className="home__legenda-card">
+                  <Picture className="home__legenda-picture" images={mattia} radius="200px"/>
+                  <div className="home__legenda-content">
+                    <span className="name">mattia albertin</span>
+                    <span className="job">photographer</span>
+                    <ul className="socials">
+                      <Button iconLeft="instagram" background="clear" color="black" type="link" link='#'/>
                     </ul>
                   </div>
                 </div>
@@ -107,23 +122,9 @@ class Home extends Component {
                     <span className="name">luca mezzatesta</span>
                     <span className="job">videomaker</span>
                     <ul className="socials">
-                      <Button iconLeft="facebook" background="clear" color="black"/>
-                      <Button iconLeft="instagram" background="clear" color="black"/>
-                      <Button iconLeft="website" background="clear" color="black"/>
-                    </ul>
-                  </div>
-                </div>
-              </Card>
-              <Card>
-                <div className="home__legenda-card">
-                  <Picture className="home__legenda-picture" images={luca} radius="200px"/>
-                  <div className="home__legenda-content">
-                    <span className="name">luca mezzatesta</span>
-                    <span className="job">videomaker</span>
-                    <ul className="socials">
-                      <Button iconLeft="facebook" background="clear" color="black"/>
-                      <Button iconLeft="instagram" background="clear" color="black"/>
-                      <Button iconLeft="website" background="clear" color="black"/>
+                      <Button iconLeft="instagram" background="clear" color="black" type="link" link='#'/>
+                      <Button iconLeft="youtube" background="clear" color="black" type="link" link='#'/>
+                      <Button iconLeft="website" background="clear" color="black" type="link" link='#'/>
                     </ul>
                   </div>
                 </div>
@@ -131,67 +132,16 @@ class Home extends Component {
             </div>
           </section>
 
-          <section className="home__feed">
-            <h3 className="title" id="nav-journey">Join our adventure</h3>
-            <div className="home__polaroid">
-              <Badge className="home__polaroid-wrapper" content={
-                  <Picture images={luca} radius="200px"/>
-                }>
-                <Card aspectRatio={7/9} flow="vertical">
-                  <Picture images={luca} radius="20px" aspectRatio={1} />
-                  <div className="home__polaroid-bottom">
-                    <span className="date">15 AUG 2019</span>
-                    <span className="geolocation">Alaska, USA</span>
-                  </div>
-                </Card>
-              </Badge>
-              <Badge className="home__polaroid-wrapper" content={
-                  <Picture images={luca} radius="200px"/>
-                }>
-                <Card aspectRatio={7/9} flow="vertical">
-                  <Picture images={luca} radius="20px" aspectRatio={1} />
-                  <div className="home__polaroid-bottom">
-                    <span className="date">15 AUG 2019</span>
-                    <span className="geolocation">Alaska, USA</span>
-                  </div>
-                </Card>
-              </Badge>
-              <Badge className="home__polaroid-wrapper" content={
-                  <Picture images={luca} radius="200px"/>
-                }>
-                <Card aspectRatio={7/9} flow="vertical">
-                  <Picture images={luca} radius="20px" aspectRatio={1} />
-                  <div className="home__polaroid-bottom">
-                    <span className="date">15 AUG 2019</span>
-                    <span className="geolocation">Alaska, USA</span>
-                  </div>
-                </Card>
-              </Badge>
-              <Badge className="home__polaroid-wrapper" content={
-                  <Picture images={luca} radius="200px"/>
-                }>
-                <Card aspectRatio={7/9} flow="vertical">
-                  <Picture images={luca} radius="20px" aspectRatio={1} />
-                  <div className="home__polaroid-bottom">
-                    <span className="date">15 AUG 2019</span>
-                    <span className="geolocation">Alaska, USA</span>
-                  </div>
-                </Card>
-              </Badge>
-              <Badge className="home__polaroid-wrapper" content={
-                  <Picture images={luca} radius="200px"/>
-                }>
-                <Card aspectRatio={7/9} flow="vertical">
-                  <Picture images={luca} radius="20px" aspectRatio={1} />
-                  <div className="home__polaroid-bottom">
-                    <span className="date">15 AUG 2019</span>
-                    <span className="geolocation">Alaska, USA</span>
-                  </div>
-                </Card>
-              </Badge>
+          <section className="home__supporters">
+            <h3 className="title" id="nav-sponsor">Our supporters</h3>
+
+            <div className="home__supporters-list">
+
             </div>
+
           </section>
         </main>
+      <Footer/>
       <Modal 
         show={this.state.isModalOpen}
         onClose={() => this.setState({isModalOpen:false}) }
