@@ -50,6 +50,13 @@ export default class Waiting extends Component {
             >
               {labels.discoverMore || "DISCOVER MORE"}
             </Button>
+            <Button
+              className="waiting__button"
+              type="link"
+              href={labels.whoWeAreHref || "#"}
+            >
+              {labels.whoWeAre || "WHO WE ARE"}
+            </Button>
             <Button 
               className="waiting__button"
               type="link"
