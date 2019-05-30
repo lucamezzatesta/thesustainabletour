@@ -10,8 +10,6 @@ import Navigation from '../../components/Navigation/Navigation';
 import Card from '../../components/Card/Card';
 import Picture from '../../components/Picture/Picture';
 import Button from '../../components/Button/Button';
-import Badge from '../../components/Badge/Badge';
-import Modal from '../../components/Modal/Modal';
 import Footer from '../../components/Footer/Footer';
 
 // Images
@@ -28,10 +26,6 @@ class Home extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      isModalOpen: false,
-    }
-
     this.scrollController = new ScrollMagic.Controller();
     this.scrollController.scrollTo(target => {
       TweenMax.to(window, 0.5, {
@@ -42,11 +36,6 @@ class Home extends Component {
         ease : Power2.easeInOut
       })
     });
-  }
-
-  onContactUsClick = e => {
-    console.log("contact us");
-    this.setState({isModalOpen: true});
   }
 
   smoothScrollTo = e => {
@@ -142,10 +131,6 @@ class Home extends Component {
           </section>
         </main>
       <Footer/>
-      <Modal 
-        show={this.state.isModalOpen}
-        onClose={() => this.setState({isModalOpen:false}) }
-      />
       </div>
     );
   }

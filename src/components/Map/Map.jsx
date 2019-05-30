@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
+import {db} from '../../services/firebase';
 
 import './Map.scss';
 
@@ -17,32 +18,74 @@ class Map extends Component {
     zoom: 1,
   };
 
+  constructor() {
+    super();
+
+    this.state = {
+      geoloc: [],
+      map: null,
+      maps: null,
+    }
+  }
+
+  componentDidMount() {
+    db.ref('/years/2019/geoloc').once('value').then(s => this.setState({geoloc: Object.values(s.val())}));
+  }
+
   handleApiLoaded = (map, maps) => {
+
+    this.setState({
+      map,
+      maps
+    });
+
     map.setOptions({
       disableDefaultUI: true,
     });
+  }
 
-    // TODO: Rendere dinamiche queste coordinate
-    var flightPlanCoordinates = [
-      {lat: 45.8415582, lng: -108.0177694},
-      {lat: 60.8415582, lng: -140.0177694},
-    ];
-    var flightPath = new maps.Polyline({
-      path: flightPlanCoordinates,
-      strokeColor: '#FF0000',
-      strokeOpacity: 1.0,
-      strokeWeight: 2,
-      icons: [
-        {
-          icon: {path: maps.SymbolPath.FORWARD_CLOSED_ARROW},
-          offset: '50%'
+  drawPins = (geoloc, map, maps) => {
+
+    // Compute coordinates
+    let coordinates = [];
+    if (geoloc) {
+      coordinates = geoloc.map(e => { return {lat: e.lat, lng: e.lng} })
+    }
+
+    // Draw polyline
+    if (map && maps) {
+      new maps.Polyline({
+        path: coordinates,
+        strokeColor: '#FF0000',
+        strokeOpacity: 1.0,
+        strokeWeight: 2,
+        icons: [
+          {
+            icon: {path: maps.SymbolPath.FORWARD_CLOSED_ARROW},
+            offset: '50%'
+          }
+        ],
+        map: map,
+      });
+    }
+
+    // Draw pins
+    let pins = [];
+    if (coordinates) {
+      coordinates.forEach((e, index) => {
+        if (index === coordinates.length - 1) {
+          pins.push(<div key={index} className="map__pin--last" lat={e.lat} lng={e.lng} text="A"></div>)
         }
-      ],
-      map: map,
-    });
+        else {
+          pins.push(<div key={index} className="map__pin" lat={e.lat} lng={e.lng} text="A"></div>)
+        }
+      });
+    }
+    return pins;
   }
 
   render() {
+
     return (
       <div className="map">
         <GoogleMapReact
@@ -52,8 +95,7 @@ class Map extends Component {
           yesIWantToUseGoogleMapApiInternals
           onGoogleApiLoaded={({ map, maps }) => this.handleApiLoaded(map, maps)}
           >
-          <div key={0} className="map__pin" lat={45.8415582} lng={-108.0177694} text="A"></div>
-          <div key={1} className="map__pin--last" lat={60.8415582} lng={-140.0177694} text="A"></div>
+            {this.drawPins(this.state.geoloc, this.state.map, this.state.maps)}
         </GoogleMapReact>
       </div>
     );

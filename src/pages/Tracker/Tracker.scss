@@ -1,0 +1,31 @@
+.tracker {
+
+    max-width: 350px;
+    margin: 0 auto;
+
+    &__header {
+
+        h1.title {
+            font-size: 3.4rem;
+        }
+
+        .welcome-message {
+            margin: 20px 0;
+            display: block;
+            text-align: center;
+            font-size: 2rem;
+            
+        }
+    }
+
+    &__message {
+        width: 100%;
+        min-height: 200px;
+        font-size: 1.5rem;
+        resize: none;
+    }
+
+    &__track-button {
+        margin: 20px auto;
+    }
+}
