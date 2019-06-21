@@ -23,7 +23,7 @@ class App extends Component {
   componentDidMount() {
     db.ref('/years/2019/labels/en').once('value').then(s => this.setState({labels: s.val()}));
     db.ref('/years/2019/waitingSlideshow').once('value').then(s => this.setState({slideshow: Object.values(s.val())}));
-    db.ref('/years/2019/admins').once('value').then(s => this.setState({admins: Object.values(s.val())}));
+    db.ref('/admins').once('value').then(s => this.setState({admins: Object.values(s.val())}));
 
     auth.onAuthStateChanged((user) => {
       if (user) {
@@ -71,9 +71,6 @@ class App extends Component {
   }
 
   render() {
-
-    // return <Waiting labels={this.state.labels} slideshow={this.state.slideshow}/>;
-    // return <Home />
 
     return (
       <Router>

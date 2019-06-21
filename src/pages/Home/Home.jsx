@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './Home.scss';
 
 import {TweenMax, ScrollToPlugin, Power2} from 'gsap/all';
@@ -46,7 +46,16 @@ class Home extends Component {
     }
   }
 
+  lineBreaker(text) {
+    if (!text || typeof text !== "string") return "";
+
+    return text.split('\n').map(i => <Fragment key={i}>{i}<br/></Fragment>)
+  }
+
   render() {
+
+    let labels = this.props.labels || {};
+
     return (
       <div className="home">
         <Header title="The Sustainable Tour" subtitle="north american edition"/>
@@ -55,19 +64,19 @@ class Home extends Component {
             [
               {
                 type: "link",
-                text: "about",
+                text: labels.navButton1 || "",
                 link: "#nav-about",
                 onClick: this.smoothScrollTo,
               },
               {
                 type: "link",
-                text: "our supporters",
+                text: labels.navButton2 || "",
                 link: "#nav-sponsor",
                 onClick: this.smoothScrollTo,
               },
               {
                 type: "link",
-                text: "contact us",
+                text: labels.navButton3 || "",
                 link: "mailto:info@thesustainabletour.com",
               }
             ]
@@ -75,8 +84,8 @@ class Home extends Component {
         <main className="container">
           <section className="row home__description">
             <div className="col-lg-7 col-xl-7">
-              <h3 className="title home__description-title" id="nav-about">Life is a journey,<br/>make it sustainable!</h3>
-              <p className="home__description-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Donec elementum ligula eu sapien consequat eleifend. Donec nec dolor erat, condimentum sagittis sem. Praesent porttitor porttitor risus, dapibus rutrum ipsum gravida et. Integer lectus nisi, facilisis sit amet eleifend nec, pharetra ut augue. Integer quam nunc, consequat nec egestas ac, volutpat ac nisi. Sed consectetur dignissim dignissim. Donec pretium est sit amet ipsum fringilla feugiat. Aliquam erat volutpat. Maecenas scelerisque, orci sit amet cursus tincidunt, libero nisl eleifend tortor, vitae cursus risus mauris vitae nisi. Cras laoreet ultrices ligula eget tempus. Aenean metus purus, iaculis ut imperdiet eget, sodales et massa. Duis pellentesque nisl vel massa</p>
+              <h3 className="title home__description-title" id="nav-about">{this.lineBreaker(labels.motto)}</h3>
+              <p className="home__description-text">{this.lineBreaker(labels.aboutText)}</p>
             </div>
             <div className="col home__legenda">
               <Card>
@@ -122,7 +131,7 @@ class Home extends Component {
           </section>
 
           <section className="home__supporters">
-            <h3 className="title" id="nav-sponsor">Our supporters</h3>
+            <h3 className="title" id="nav-sponsor">{this.lineBreaker(labels.aboutTitle)}</h3>
 
             <div className="home__supporters-list">
 
