@@ -95,8 +95,8 @@ class Home extends Component {
                     <span className="name">giovanni franco</span>
                     <span className="job">blogger</span>
                     <ul className="socials">
-                      <Button iconLeft="instagram" background="clear" color="black" type="link" link='https://www.instagram.com/giovfranco'/>
-                      <Button iconLeft="website" background="clear" color="black" type="link" link='https://giovfranco.com'/>
+                      <Button iconLeft="instagram" background="clear" color="black" type="link" href='https://www.instagram.com/giovfranco'/>
+                      <Button iconLeft="website" background="clear" color="black" type="link" href='https://giovfranco.com'/>
                     </ul>
                   </div>
                 </div>
@@ -108,7 +108,7 @@ class Home extends Component {
                     <span className="name">mattia albertin</span>
                     <span className="job">photographer</span>
                     <ul className="socials">
-                      <Button iconLeft="instagram" background="clear" color="black" type="link" link='https://www.instagram.com/matti_albertin'/>
+                      <Button iconLeft="instagram" background="clear" color="black" type="link" href='https://www.instagram.com/matti_albertin'/>
                     </ul>
                   </div>
                 </div>
@@ -120,9 +120,9 @@ class Home extends Component {
                     <span className="name">luca mezzatesta</span>
                     <span className="job">videomaker</span>
                     <ul className="socials">
-                      <Button iconLeft="instagram" background="clear" color="black" type="link" link='https://www.instagram.com/luca_mezzatesta'/>
-                      <Button iconLeft="youtube" background="clear" color="black" type="link" link='https://www.youtube.com/channel/UCdFuGhRTglTHKk6vb0TEU9g'/>
-                      <Button iconLeft="website" background="clear" color="black" type="link" link='https://www.lucamezzatesta.com/'/>
+                      <Button iconLeft="instagram" background="clear" color="black" type="link" href='https://www.instagram.com/luca_mezzatesta'/>
+                      <Button iconLeft="youtube" background="clear" color="black" type="link" href='https://www.youtube.com/channel/UCdFuGhRTglTHKk6vb0TEU9g'/>
+                      <Button iconLeft="website" background="clear" color="black" type="link" href='https://www.lucamezzatesta.com/'/>
                     </ul>
                   </div>
                 </div>
