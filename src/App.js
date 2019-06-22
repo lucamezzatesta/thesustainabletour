@@ -25,8 +25,6 @@ class App extends Component {
     let language = navigator.language || navigator.userLanguage;
     language = language.split('-')[0];
 
-    console.log()
-
     if (language !== 'en' && language !== 'it') language = 'en';
 
     db.ref(`/years/2019/labels/${language}`).once('value').then(s => this.setState({labels: s.val()}));
