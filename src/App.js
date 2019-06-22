@@ -21,7 +21,15 @@ class App extends Component {
   }
 
   componentDidMount() {
-    db.ref('/years/2019/labels/en').once('value').then(s => this.setState({labels: s.val()}));
+
+    let language = navigator.language || navigator.userLanguage;
+    language = language.split('-')[0];
+
+    console.log()
+
+    if (language !== 'en' && language !== 'it') language = 'en';
+
+    db.ref(`/years/2019/labels/${language}`).once('value').then(s => this.setState({labels: s.val()}));
     db.ref('/years/2019/waitingSlideshow').once('value').then(s => this.setState({slideshow: Object.values(s.val())}));
     db.ref('/admins').once('value').then(s => this.setState({admins: Object.values(s.val())}));
 
