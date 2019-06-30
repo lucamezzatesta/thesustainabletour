@@ -20,7 +20,6 @@ export default class Tracker extends Component {
 
         db.ref('/years/2019/geoloc').once('value').then(s => {
             this.setState({geoloc: s.val()})
-            console.log('geoloc vals:', s.val());
         });
         
     }
