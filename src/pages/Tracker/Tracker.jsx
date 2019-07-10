@@ -4,6 +4,7 @@ import firebase, { db } from '../../services/firebase';
 
 // Components
 import Button from '../../components/Button/Button';
+import Number from '../../components/Number/Number';
 
 export default class Tracker extends Component {
 
@@ -12,6 +13,8 @@ export default class Tracker extends Component {
         this.state = {
             textValue: '',
             geoloc: [],
+            trees: 0,
+            co2: 0,
         }
     }
 
@@ -21,7 +24,15 @@ export default class Tracker extends Component {
         db.ref('/years/2019/geoloc').once('value').then(s => {
             this.setState({geoloc: s.val()})
         });
+
+        db.ref('/years/2019/trees').once('value').then(s => {
+            this.setState({trees: s.val()})
+        });
         
+        db.ref('/years/2019/co2').once('value').then(s => {
+            this.setState({co2: s.val()})
+        });
+
     }
 
     componentWillUnmount() {
@@ -61,33 +72,78 @@ export default class Tracker extends Component {
         if (navigator.geolocation) navigator.geolocation.getCurrentPosition(this.sendDataToFirebase);
     }
 
+    sendCounterData =() => {
+        const co2Ref = db.ref('/years/2019/co2/');
+        const treesRef = db.ref('/years/2019/trees');
+
+        co2Ref.set(this.state.co2).then(() => {
+            alert('The Sustainable Tracker: co2 updated!');
+            
+            db.ref('/years/2019/co2').once('value').then(s => {
+                this.setState({
+                    co2: s.val()
+                })
+            });
+            
+        });
+
+        treesRef.set(this.state.trees).then(() => {
+            alert('The Sustainable Tracker: trees updated!');
+            
+            db.ref('/years/2019/trees').once('value').then(s => {
+                this.setState({
+                    trees: s.val()
+                })
+            });
+            
+        })
+    }
+
     trackerUI(user) {
         if (user && user.isAdmin) {
 
             return (
-                <div className="tracker__track-area">
-                    <textarea 
-                        className="tracker__message" 
-                        name="tracking-message" 
-                        id="tracking-message" 
-                        cols="30" 
-                        rows="10" 
-                        placeholder="insert your message here (optional)"
-                        value={this.state.textValue}
-                        onChange={this.handleTextChange}
-                        >
+                <div>
+                    <div className="tracker__counters">
+                        <form>
+                            <div className="tracker__counters-element"> 
+                                <span>CO2:</span>
+                                <input type="number" name='co2' value={this.state.co2 || 0} onChange={(e) => this.setState({co2: e.target.value})}/>
+                            </div>
+                            <div className="tracker__counters-element">
+                                <span>Trees:</span>
+                                <input type="number" name='trees' value={this.state.trees || -1} onChange={(e) => this.setState({trees: e.target.value})}/>
+                            </div>
+                        </form>
+                        <Button className="tracker__track-button tracker__counters-element" onClick={this.sendCounterData} >
+                                UPDATE
+                            </Button>
+                    </div>
 
-                    </textarea>
-                    <Button className="tracker__track-button"
-                        onClick={this.sendTrackingData}
-                        >
-                            Add tracking point
-                    </Button>
-                    <div>
-                        <h2 className="tracker__list-title">Last tracked points:</h2>
-                        <ul>
-                            {this.trackPoint(this.state.geoloc)}
-                        </ul>
+                    <div className="tracker__track-area">
+                        <textarea 
+                            className="tracker__message" 
+                            name="tracking-message" 
+                            id="tracking-message" 
+                            cols="30" 
+                            rows="10" 
+                            placeholder="insert your message here (optional)"
+                            value={this.state.textValue}
+                            onChange={this.handleTextChange}
+                            >
+
+                        </textarea>
+                        <Button className="tracker__track-button"
+                            onClick={this.sendTrackingData}
+                            >
+                                Add tracking point
+                        </Button>
+                        <div>
+                            <h2 className="tracker__list-title">Last tracked points:</h2>
+                            <ul>
+                                {this.trackPoint(this.state.geoloc)}
+                            </ul>
+                        </div>
                     </div>
                 </div>
             )
@@ -117,6 +173,21 @@ export default class Tracker extends Component {
         }
         return renderedPoints.reverse();
     }
+
+    countersUI() {
+        return (
+            <div className="row home__counters">
+                <div className="col-md-6 col-sm-12 home__counters-flipdown">
+                    <span className="subtitle color-green">CO2</span>
+                 <Number value={this.state.co2 || '0'} textAfter="kg"/>
+                </div>
+                <div className="col-md-6 col-sm-12 home__counters-flipdown">
+                    <span className="subtitle color-green">TREES</span>
+                    <Number value={this.state.trees || '0'}/>
+                </div>
+            </div>
+        )
+    } 
 
     render() {
 

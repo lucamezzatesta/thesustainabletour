@@ -46,4 +46,16 @@
         font-size: 2rem;
         padding-bottom: 1rem;
     }
+
+    &__counters {
+        font-size: 2rem;
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &-element {
+            margin-bottom: 2rem;
+        }
+    }
 }
