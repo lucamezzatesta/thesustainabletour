@@ -1,6 +1,8 @@
 # thesustainabletour.com
 Repository of "The Sustainable Tour" website.
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/075c3e9d-f7fa-40a8-b968-91beee6fcc6c/deploy-status)](https://app.netlify.com/sites/frosty-bhabha-73d5cc/deploys)
+
 ## Table of contents
 1. [Project Informations](#project-informations)
 2. [How to install](#how-to-install)
