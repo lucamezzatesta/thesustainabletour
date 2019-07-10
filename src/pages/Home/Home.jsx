@@ -17,6 +17,10 @@ import Number from '../../components/Number/Number';
 import luca from '../../assets/images/luca.jpg';
 import gio from '../../assets/images/gio.jpg';
 import mattia from '../../assets/images/mattia.jpg';
+import n26 from '../../assets/images/logos/n26.png';
+import salewa from '../../assets/images/logos/salewa.png';
+import treedom from '../../assets/images/logos/treedom.png';
+import triplesense from '../../assets/images/logos/triplesense.png';
 
 // eslint-disable-next-line
 const plugins = [ScrollMagic, TweenMax, ScrollToPlugin];
@@ -151,8 +155,12 @@ class Home extends Component {
             <h3 className="title" id="nav-sponsor">{this.lineBreaker(labels.aboutTitle)}</h3>
 
             <div className="home__supporters-list">
-
+              <a href="https://www.salewa.com/" target="_blank" rel="noopener noreferrer"><img alt="" src={salewa}></img></a>
+              <a href="https://www.reply.com/triplesense" target="_blank" rel="noopener noreferrer"><img alt="" src={triplesense}></img></a>
+              <a href="https://n26.com" target="_blank" rel="noopener noreferrer"><img alt=""  src={n26}></img></a>
+              <a href="https://www.treedom.net" target="_blank" rel="noopener noreferrer"><img alt="" src={treedom}></img></a>
             </div>
+            <div className="color-white">Un sincero ringraziamento a Fabio Fierro per aver donato 0.11€</div>
 
           </section>
         </main>

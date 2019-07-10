@@ -107,7 +107,12 @@
     text-align: center;
 
     &-list {
-      height: 700px;
+      margin: 5rem 0 8rem;
+
+      img {
+        max-height: 100px;
+        margin: 2rem 2rem;
+      }
     }
   }
 }
