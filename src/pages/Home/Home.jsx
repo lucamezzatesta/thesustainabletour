@@ -11,6 +11,7 @@ import Card from '../../components/Card/Card';
 import Picture from '../../components/Picture/Picture';
 import Button from '../../components/Button/Button';
 import Footer from '../../components/Footer/Footer';
+import Number from '../../components/Number/Number';
 
 // Images
 import luca from '../../assets/images/luca.jpg';
@@ -56,10 +57,13 @@ class Home extends Component {
 
     let labels = this.props.labels || {};
 
+    console.log(this.props.co2, this.props.trees)
+
     return (
       <div className="home">
         <Header title="The Sustainable Tour" subtitle="north american edition"/>
         <Map />
+
         <Navigation buttons={
             [
               {
@@ -81,7 +85,20 @@ class Home extends Component {
               }
             ]
           }/>
+
+        <div className="row home__counters">
+          <div className="col-md-6 col-sm-12 home__counters-flipdown">
+            <span className="subtitle color-green">{labels.co2Produced || ''}</span>
+            <Number value={this.props.co2 || '0'} textAfter="kg"/>
+          </div>
+          <div className="col-md-6 col-sm-12 home__counters-flipdown">
+            <span className="subtitle color-green">{labels.treesPlanted || ''}</span>
+            <Number value={this.props.trees || '0'}/>
+          </div>
+        </div>
+
         <main className="container">
+
           <section className="row home__description">
             <div className="col-lg-7 col-xl-7">
               <h3 className="title home__description-title" id="nav-about">{this.lineBreaker(labels.motto)}</h3>

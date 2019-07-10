@@ -1,6 +1,13 @@
 .navigation {
   position: absolute;
-  bottom: 1.5rem;
+  top: 10rem;
+
+  @media (min-width: 768px) {
+    top: 16rem;
+  }
+  max-width: 600px;
+  margin: 0 auto;
+
   left: 1.5rem;
   right: 1.5rem;
   z-index: 2;

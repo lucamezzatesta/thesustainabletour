@@ -16,6 +16,8 @@ class App extends Component {
       slideshow: [],
       user: null,
       admins: [],
+      co2:0,
+      trees:0,
     }
   }
 
@@ -29,6 +31,8 @@ class App extends Component {
     db.ref(`/years/2019/labels/${language}`).once('value').then(s => this.setState({labels: s.val()}));
     db.ref('/years/2019/waitingSlideshow').once('value').then(s => this.setState({slideshow: Object.values(s.val())}));
     db.ref('/admins').once('value').then(s => this.setState({admins: Object.values(s.val())}));
+    db.ref('/years/2019/co2').once('value').then(s=> this.setState({co2: s.val()}))
+    db.ref('/years/2019/trees').once('value').then(s=> this.setState({trees: s.val()}))
 
     auth.onAuthStateChanged((user) => {
       if (user) {
@@ -81,7 +85,7 @@ class App extends Component {
       <Router>
         <Switch>
           <Route exact path='/tracker' render={ () => <Tracker login={this.login} logout={this.logout} user={this.state.user} />} />
-          <Route render={() => <Home labels={this.state.labels} /> } />
+          <Route render={() => <Home labels={this.state.labels} co2={this.state.co2} trees={this.state.trees}/> } />
         </Switch>
       </Router>
     )
