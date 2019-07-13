@@ -1,0 +1,16 @@
+.number {
+    &__letter {
+        border-radius: .5rem;
+        border: none;
+        margin: .2rem;
+        padding: .5rem;
+        background: #2B2B29;
+        color: #E5E4E5;
+        font-size: 3rem;
+    }
+
+    &__text-after {
+        padding-left: 1rem;
+        font-size: 3rem;
+    }
+}

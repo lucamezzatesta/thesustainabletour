@@ -38,8 +38,8 @@ export default class Waiting extends Component {
         <Modal show={true} showClose={false}>
           <div className="waiting__wrapper">
             <h1 className="title">{labels.title || 'The Sustainable Tour'}</h1>
-            {labels.subtitle && <h2 className="subtitle">{labels.subtitle}</h2> }
-            <Flipdown date={labels.departureDate !== undefined ? labels.departureDate : 1563321600}/>
+            <h2 className="subtitle">{labels.subtitle || "-- NORTH AMERICAN EDITION --"}</h2>
+            <Flipdown number={labels.departureDate || 1561334400}/>
             <span className="title waiting__days color-black;">{labels.daysBeforeTheAdventure || "days before the adventure"}</span>
 
             <span className="subtitle waiting__meantime">{labels.inTheMeantime || "in the meantime:"}</span>

@@ -12,6 +12,7 @@ const Button = ({
   background = 'green',
   color = 'white',
   href = '',
+  target = '_blank'
 }) => {
 
   let buttonClass = classNames({
@@ -36,7 +37,12 @@ const Button = ({
       );
     case 'link':
       return (
-        <a className={buttonClass} href={href} onClick={onClick}>
+        <a 
+          className={buttonClass} 
+          href={href} 
+          onClick={onClick}
+          target={target}
+        >
           {iconLeft && <i className={`icon-left icon-${iconLeft}`}></i>}
           {children && <span className="button__content">{children}</span>}
           {iconRight && <i className={`icon-right icon-${iconRight}`}></i>}

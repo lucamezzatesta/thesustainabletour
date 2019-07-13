@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './Home.scss';
 
 import {TweenMax, ScrollToPlugin, Power2} from 'gsap/all';
@@ -10,11 +10,17 @@ import Navigation from '../../components/Navigation/Navigation';
 import Card from '../../components/Card/Card';
 import Picture from '../../components/Picture/Picture';
 import Button from '../../components/Button/Button';
-import Badge from '../../components/Badge/Badge';
-import Modal from '../../components/Modal/Modal';
+import Footer from '../../components/Footer/Footer';
+import Number from '../../components/Number/Number';
 
-// DEBUG: Test
+// Images
 import luca from '../../assets/images/luca.jpg';
+import gio from '../../assets/images/gio.jpg';
+import mattia from '../../assets/images/mattia.jpg';
+import n26 from '../../assets/images/logos/n26.png';
+import salewa from '../../assets/images/logos/salewa.png';
+import treedom from '../../assets/images/logos/treedom.png';
+import triplesense from '../../assets/images/logos/triplesense.png';
 
 // eslint-disable-next-line
 const plugins = [ScrollMagic, TweenMax, ScrollToPlugin];
@@ -24,10 +30,6 @@ class Home extends Component {
 
   constructor(props) {
     super(props);
-
-    this.state = {
-      isModalOpen: false,
-    }
 
     this.scrollController = new ScrollMagic.Controller();
     this.scrollController.scrollTo(target => {
@@ -41,11 +43,6 @@ class Home extends Component {
     });
   }
 
-  onContactUsClick = e => {
-    console.log("contact us");
-    this.setState({isModalOpen: true});
-  }
-
   smoothScrollTo = e => {
     let id = e.currentTarget.getAttribute("href");
     if (id) {
@@ -54,76 +51,96 @@ class Home extends Component {
     }
   }
 
+  lineBreaker(text) {
+    if (!text || typeof text !== "string") return "";
+
+    return text.split('\n').map(i => <Fragment key={i}>{i}<br/></Fragment>)
+  }
+
   render() {
+
+    let labels = this.props.labels || {};
+
     return (
       <div className="home">
         <Header title="The Sustainable Tour" subtitle="north american edition"/>
         <Map />
+
         <Navigation buttons={
             [
               {
                 type: "link",
-                text: "about",
+                text: labels.navButton1 || "",
                 link: "#nav-about",
                 onClick: this.smoothScrollTo,
               },
               {
                 type: "link",
-                text: "our journey",
-                link: "#nav-journey",
+                text: labels.navButton2 || "",
+                link: "#nav-sponsor",
                 onClick: this.smoothScrollTo,
               },
               {
-                text: "contact us",
-                onClick: this.onContactUsClick,
+                type: "link",
+                text: labels.navButton3 || "",
+                link: "mailto:info@thesustainabletour.com",
               }
             ]
           }/>
+
+        <div className="row home__counters">
+          <div className="col-md-6 col-sm-12 home__counters-flipdown">
+            <span className="subtitle color-green">{labels.co2Produced || ''}</span>
+            <Number value={this.props.co2 || '0'} textAfter="kg"/>
+          </div>
+          <div className="col-md-6 col-sm-12 home__counters-flipdown">
+            <span className="subtitle color-green">{labels.treesPlanted || ''}</span>
+            <Number value={this.props.trees || '0'}/>
+          </div>
+        </div>
+
         <main className="container">
           <section className="row home__description">
-            <div className="col-lg-7 col-xl-8">
-              <h3 className="title" id="nav-about">Life is a journey,<br/>make it sustainable!</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Donec elementum ligula eu sapien consequat eleifend. Donec nec dolor erat, condimentum sagittis sem. Praesent porttitor porttitor risus, dapibus rutrum ipsum gravida et. Integer lectus nisi, facilisis sit amet eleifend nec, pharetra ut augue. Integer quam nunc, consequat nec egestas ac, volutpat ac nisi. Sed consectetur dignissim dignissim. Donec pretium est sit amet ipsum fringilla feugiat. Aliquam erat volutpat. Maecenas scelerisque, orci sit amet cursus tincidunt, libero nisl eleifend tortor, vitae cursus risus mauris vitae nisi. Cras laoreet ultrices ligula eget tempus. Aenean metus purus, iaculis ut imperdiet eget, sodales et massa. Duis pellentesque nisl vel massa</p>
+            <div className="col-lg-7 col-xl-7">
+              <h3 className="title home__description-title" id="nav-about">{this.lineBreaker(labels.motto)}</h3>
+              <p className="home__description-text">{this.lineBreaker(labels.aboutText)}</p>
             </div>
             <div className="col home__legenda">
               <Card>
                 <div className="home__legenda-card">
-                  <Picture className="home__legenda-picture" images={luca} radius="200px"/>
+                  <Picture className="home__legenda-picture" images={gio} radius="15px"/>
                   <div className="home__legenda-content">
-                    <span className="name">luca mezzatesta</span>
-                    <span className="job">videomaker</span>
+                    <span className="name">giovanni franco</span>
+                    <span className="job">blogger</span>
                     <ul className="socials">
-                      <Button iconLeft="facebook" background="clear" color="black"/>
-                      <Button iconLeft="instagram" background="clear" color="black"/>
-                      <Button iconLeft="website" background="clear" color="black"/>
+                      <Button iconLeft="instagram" background="clear" color="black" type="link" href='https://www.instagram.com/giovfranco'/>
+                      <Button iconLeft="website" background="clear" color="black" type="link" href='https://giovfranco.com'/>
                     </ul>
                   </div>
                 </div>
               </Card>
               <Card>
                 <div className="home__legenda-card">
-                  <Picture className="home__legenda-picture" images={luca} radius="200px"/>
+                  <Picture className="home__legenda-picture" images={mattia} radius="15px"/>
                   <div className="home__legenda-content">
-                    <span className="name">luca mezzatesta</span>
-                    <span className="job">videomaker</span>
+                    <span className="name">mattia albertin</span>
+                    <span className="job">photographer</span>
                     <ul className="socials">
-                      <Button iconLeft="facebook" background="clear" color="black"/>
-                      <Button iconLeft="instagram" background="clear" color="black"/>
-                      <Button iconLeft="website" background="clear" color="black"/>
+                      <Button iconLeft="instagram" background="clear" color="black" type="link" href='https://www.instagram.com/matti_albertin'/>
                     </ul>
                   </div>
                 </div>
               </Card>
               <Card>
                 <div className="home__legenda-card">
-                  <Picture className="home__legenda-picture" images={luca} radius="200px"/>
+                  <Picture className="home__legenda-picture" images={luca} radius="15px"/>
                   <div className="home__legenda-content">
                     <span className="name">luca mezzatesta</span>
                     <span className="job">videomaker</span>
                     <ul className="socials">
-                      <Button iconLeft="facebook" background="clear" color="black"/>
-                      <Button iconLeft="instagram" background="clear" color="black"/>
-                      <Button iconLeft="website" background="clear" color="black"/>
+                      <Button iconLeft="instagram" background="clear" color="black" type="link" href='https://www.instagram.com/luca_mezzatesta'/>
+                      <Button iconLeft="youtube" background="clear" color="black" type="link" href='https://www.youtube.com/channel/UCdFuGhRTglTHKk6vb0TEU9g'/>
+                      <Button iconLeft="website" background="clear" color="black" type="link" href='https://www.lucamezzatesta.com/'/>
                     </ul>
                   </div>
                 </div>
@@ -131,71 +148,25 @@ class Home extends Component {
             </div>
           </section>
 
-          <section className="home__feed">
-            <h3 className="title" id="nav-journey">Join our adventure</h3>
-            <div className="home__polaroid">
-              <Badge className="home__polaroid-wrapper" content={
-                  <Picture images={luca} radius="200px"/>
-                }>
-                <Card aspectRatio={7/9} flow="vertical">
-                  <Picture images={luca} radius="20px" aspectRatio={1} />
-                  <div className="home__polaroid-bottom">
-                    <span className="date">15 AUG 2019</span>
-                    <span className="geolocation">Alaska, USA</span>
-                  </div>
-                </Card>
-              </Badge>
-              <Badge className="home__polaroid-wrapper" content={
-                  <Picture images={luca} radius="200px"/>
-                }>
-                <Card aspectRatio={7/9} flow="vertical">
-                  <Picture images={luca} radius="20px" aspectRatio={1} />
-                  <div className="home__polaroid-bottom">
-                    <span className="date">15 AUG 2019</span>
-                    <span className="geolocation">Alaska, USA</span>
-                  </div>
-                </Card>
-              </Badge>
-              <Badge className="home__polaroid-wrapper" content={
-                  <Picture images={luca} radius="200px"/>
-                }>
-                <Card aspectRatio={7/9} flow="vertical">
-                  <Picture images={luca} radius="20px" aspectRatio={1} />
-                  <div className="home__polaroid-bottom">
-                    <span className="date">15 AUG 2019</span>
-                    <span className="geolocation">Alaska, USA</span>
-                  </div>
-                </Card>
-              </Badge>
-              <Badge className="home__polaroid-wrapper" content={
-                  <Picture images={luca} radius="200px"/>
-                }>
-                <Card aspectRatio={7/9} flow="vertical">
-                  <Picture images={luca} radius="20px" aspectRatio={1} />
-                  <div className="home__polaroid-bottom">
-                    <span className="date">15 AUG 2019</span>
-                    <span className="geolocation">Alaska, USA</span>
-                  </div>
-                </Card>
-              </Badge>
-              <Badge className="home__polaroid-wrapper" content={
-                  <Picture images={luca} radius="200px"/>
-                }>
-                <Card aspectRatio={7/9} flow="vertical">
-                  <Picture images={luca} radius="20px" aspectRatio={1} />
-                  <div className="home__polaroid-bottom">
-                    <span className="date">15 AUG 2019</span>
-                    <span className="geolocation">Alaska, USA</span>
-                  </div>
-                </Card>
-              </Badge>
+          <section className="home__links-wrapper">
+            <Button iconLeft="instagram" background="green" color="white" type="link" href="https://www.instagram.com/thesustainabletour/?hl=it">{labels.followInstagram}</Button>
+            <Button iconLeft="website" background="green" color="white" type="link" href={labels.readBlogUrl}>{labels.readBlog}</Button>
+          </section>
+
+          <section className="home__supporters">
+            <h3 className="title" id="nav-sponsor">{this.lineBreaker(labels.aboutTitle)}</h3>
+
+            <div className="home__supporters-list">
+              <a href="https://www.salewa.com/" target="_blank" rel="noopener noreferrer"><img alt="" src={salewa}></img></a>
+              <a href="https://www.reply.com/triplesense" target="_blank" rel="noopener noreferrer"><img alt="" src={triplesense}></img></a>
+              <a href="https://n26.com" target="_blank" rel="noopener noreferrer"><img alt=""  src={n26}></img></a>
+              <a href="https://www.treedom.net" target="_blank" rel="noopener noreferrer"><img alt="" src={treedom}></img></a>
             </div>
+            <div className="color-white">Un sincero ringraziamento a Fabio Fierro per aver donato 0.11€</div>
+
           </section>
         </main>
-      <Modal 
-        show={this.state.isModalOpen}
-        onClose={() => this.setState({isModalOpen:false}) }
-      />
+      <Footer/>
       </div>
     );
   }

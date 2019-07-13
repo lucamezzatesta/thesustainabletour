@@ -1,0 +1,61 @@
+.tracker {
+
+    max-width: 350px;
+    margin: 0 auto;
+
+    &__header {
+
+        h1.title {
+            font-size: 3.4rem;
+        }
+
+        .welcome-message {
+            margin: 20px 0;
+            display: block;
+            text-align: center;
+            font-size: 2rem;
+            
+        }
+    }
+
+    &__message {
+        width: 100%;
+        min-height: 200px;
+        font-size: 1.5rem;
+        resize: none;
+    }
+
+    &__track-button {
+        margin: 20px auto;
+    }
+
+    &__point {
+        background: white;
+        border: 1px solid beige;
+        border-radius: 10px;
+        padding: 15px;
+        font-size: 2rem;
+        margin-bottom: 5px;
+
+        span {
+            display: block;
+        }
+    }
+
+    &__list-title {
+        font-size: 2rem;
+        padding-bottom: 1rem;
+    }
+
+    &__counters {
+        font-size: 2rem;
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &-element {
+            margin-bottom: 2rem;
+        }
+    }
+}
