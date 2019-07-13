@@ -61,8 +61,6 @@ class Home extends Component {
 
     let labels = this.props.labels || {};
 
-    console.log(this.props.co2, this.props.trees)
-
     return (
       <div className="home">
         <Header title="The Sustainable Tour" subtitle="north american edition"/>
@@ -102,7 +100,6 @@ class Home extends Component {
         </div>
 
         <main className="container">
-
           <section className="row home__description">
             <div className="col-lg-7 col-xl-7">
               <h3 className="title home__description-title" id="nav-about">{this.lineBreaker(labels.motto)}</h3>
@@ -111,7 +108,7 @@ class Home extends Component {
             <div className="col home__legenda">
               <Card>
                 <div className="home__legenda-card">
-                  <Picture className="home__legenda-picture" images={gio} radius="200px"/>
+                  <Picture className="home__legenda-picture" images={gio} radius="15px"/>
                   <div className="home__legenda-content">
                     <span className="name">giovanni franco</span>
                     <span className="job">blogger</span>
@@ -124,7 +121,7 @@ class Home extends Component {
               </Card>
               <Card>
                 <div className="home__legenda-card">
-                  <Picture className="home__legenda-picture" images={mattia} radius="200px"/>
+                  <Picture className="home__legenda-picture" images={mattia} radius="15px"/>
                   <div className="home__legenda-content">
                     <span className="name">mattia albertin</span>
                     <span className="job">photographer</span>
@@ -136,7 +133,7 @@ class Home extends Component {
               </Card>
               <Card>
                 <div className="home__legenda-card">
-                  <Picture className="home__legenda-picture" images={luca} radius="200px"/>
+                  <Picture className="home__legenda-picture" images={luca} radius="15px"/>
                   <div className="home__legenda-content">
                     <span className="name">luca mezzatesta</span>
                     <span className="job">videomaker</span>
@@ -149,6 +146,11 @@ class Home extends Component {
                 </div>
               </Card>
             </div>
+          </section>
+
+          <section className="home__links-wrapper">
+            <Button iconLeft="instagram" background="green" color="white" type="link" href="https://www.instagram.com/thesustainabletour/?hl=it">{labels.followInstagram}</Button>
+            <Button iconLeft="website" background="green" color="white" type="link" href={labels.readBlogUrl}>{labels.readBlog}</Button>
           </section>
 
           <section className="home__supporters">

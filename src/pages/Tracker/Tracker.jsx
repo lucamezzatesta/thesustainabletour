@@ -108,11 +108,11 @@ export default class Tracker extends Component {
                         <form>
                             <div className="tracker__counters-element"> 
                                 <span>CO2:</span>
-                                <input type="number" name='co2' value={this.state.co2 || 0} onChange={(e) => this.setState({co2: e.target.value})}/>
+                                <input type="number" name='co2' value={this.state.co2} onChange={(e) => this.setState({co2: e.target.value})}/>
                             </div>
                             <div className="tracker__counters-element">
                                 <span>Trees:</span>
-                                <input type="number" name='trees' value={this.state.trees || -1} onChange={(e) => this.setState({trees: e.target.value})}/>
+                                <input type="number" name='trees' value={this.state.trees} onChange={(e) => this.setState({trees: e.target.value})}/>
                             </div>
                         </form>
                         <Button className="tracker__track-button tracker__counters-element" onClick={this.sendCounterData} >

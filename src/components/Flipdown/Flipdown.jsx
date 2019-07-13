@@ -12,11 +12,9 @@ export default class Flipdown extends Component {
             id = 'flipdown',
         } = this.props;
         new FlipDown(number, id).start();
-        console.log('componentDidMount', this.props.id, this.props.number)
     }
 
     render() {
-        console.log('render', this.props.id)
         return (<div id={this.props.id} className="flipdown"></div>)
     }
 }

@@ -29,7 +29,11 @@ class Map extends Component {
   }
 
   componentDidMount() {
-    db.ref('/years/2019/geoloc').once('value').then(s => this.setState({geoloc: Object.values(s.val())}));
+    let ref = db.ref('/years/2019/geoloc')
+    let value = ref.once('value')
+    value.then(s => {
+      this.setState({geoloc: Object.values(s.val() || {})})
+    });
   }
 
   handleApiLoaded = (map, maps) => {
