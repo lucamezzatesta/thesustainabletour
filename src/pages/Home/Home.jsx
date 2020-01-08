@@ -121,18 +121,6 @@ class Home extends Component {
               </Card>
               <Card>
                 <div className="home__legenda-card">
-                  <Picture className="home__legenda-picture" images={mattia} radius="15px"/>
-                  <div className="home__legenda-content">
-                    <span className="name">mattia albertin</span>
-                    <span className="job">photographer</span>
-                    <ul className="socials">
-                      <Button iconLeft="instagram" background="clear" color="black" type="link" href='https://www.instagram.com/matti_albertin'/>
-                    </ul>
-                  </div>
-                </div>
-              </Card>
-              <Card>
-                <div className="home__legenda-card">
                   <Picture className="home__legenda-picture" images={luca} radius="15px"/>
                   <div className="home__legenda-content">
                     <span className="name">luca mezzatesta</span>
