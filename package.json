@@ -9,7 +9,7 @@
     "firebase": "5.8.0",
     "google-map-react": "1.1.2",
     "gsap": "2.0.2",
-    "node-sass": "4.13.0",
+    "node-sass": "4.13.1",
     "react": "^16.8.6",
     "react-device-detect": "1.6.1",
     "react-dom": "^16.8.6",
